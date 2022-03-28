@@ -4,7 +4,7 @@
 --    where path is absolute path to the folder where the file exists, e.g. c:\temp
 --    and nameofsavedfile is the name of the saved file, e.g. vaalikone.txt
 
-
+(TEST PUSH)
 -- create a user and user's password
 -- credentials pena/kukkuu has all privileges to all all tables of database vaalikone (exept grant privilege)
 grant all on vaalikone.* to pena@localhost identified by 'kukkuu';

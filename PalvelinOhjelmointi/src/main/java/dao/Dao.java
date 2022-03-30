@@ -46,7 +46,7 @@ public class Dao {
 		ArrayList<Candidate> list=new ArrayList<>();
 		try {
 			Statement stmt=conn.createStatement();
-			ResultSet RS=stmt.executeQuery("select * from Candidate");
+			ResultSet RS=stmt.executeQuery("select * from ehdokkaat");
 			while (RS.next()){
 				Candidate f=new Candidate();
 				f.setId(RS.getString("ehdokas_id"));
@@ -68,9 +68,9 @@ public class Dao {
 	}
 	public ArrayList<Candidate> updateCandidate(Candidate f) {
 		try {
-			String sql="update Candidate set breed=? where id=?";
+			String sql="update ehdokkaat set ika=? where id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, f.getBreed());
+			pstmt.setString(1, f.getIka());
 			pstmt.setInt(2, f.getId());
 			pstmt.executeUpdate();
 			return readAllCandidates();
@@ -81,7 +81,7 @@ public class Dao {
 	}
 	public ArrayList<Candidate> deleteCandidate(String id) {
 		try {
-			String sql="delete from Candidate where id=?";
+			String sql="delete from ehdokkaat where id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.executeUpdate();
@@ -95,7 +95,7 @@ public class Dao {
 	public Candidate readCandidate(String id) {
 		Candidate f=null;
 		try {
-			String sql="select * from Candidate where id=?";
+			String sql="select * from ehdokkaat where id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			ResultSet RS=pstmt.executeQuery();

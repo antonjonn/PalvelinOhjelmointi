@@ -42,15 +42,22 @@ public class Dao {
 			return false;
 		}
 	}
-	public ArrayList<Fish> readAllFish() {
-		ArrayList<Fish> list=new ArrayList<>();
+	public ArrayList<Candidate> readAllCandidate() {
+		ArrayList<Candidate> list=new ArrayList<>();
 		try {
 			Statement stmt=conn.createStatement();
-			ResultSet RS=stmt.executeQuery("select * from fish");
+			ResultSet RS=stmt.executeQuery("select * from Candidate");
 			while (RS.next()){
-				Fish f=new Fish();
-				f.setId(RS.getInt("id"));
-				f.setBreed(RS.getString("breed"));
+				Candidate f=new Candidate();
+				f.setEhdokas_Id(RS.getString("ehdokas_id"));
+				f.setSukunimi(RS.getString("sukunimi"));
+				f.setEtunimi(RS.getString("etunimi"));
+				f.setPuolue(RS.getString("puolue"));
+				f.setKotipaikkakunta(RS.getString("kotipaikkakunta"));
+				f.setIka(RS.getString("ika"));
+				f.setMiksi_Eduskuntaan(RS.getString("miksi_eduskuntaan"));
+				f.setMita_edistaa(RS.getString("mita_edistaa"));
+				f.setAmmatti(RS.getString("ammatti"));
 				list.add(f);
 			}
 			return list;
@@ -59,41 +66,41 @@ public class Dao {
 			return null;
 		}
 	}
-	public ArrayList<Fish> updateFish(Fish f) {
+	public ArrayList<Candidate> updateCandidate(Candidate f) {
 		try {
-			String sql="update fish set breed=? where id=?";
+			String sql="update Candidate set breed=? where id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, f.getBreed());
 			pstmt.setInt(2, f.getId());
 			pstmt.executeUpdate();
-			return readAllFish();
+			return readAllCandidate();
 		}
 		catch(SQLException e) {
 			return null;
 		}
 	}
-	public ArrayList<Fish> deleteFish(String id) {
+	public ArrayList<Candidate> deleteCandidate(String id) {
 		try {
-			String sql="delete from fish where id=?";
+			String sql="delete from Candidate where id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.executeUpdate();
-			return readAllFish();
+			return readAllCandidate();
 		}
 		catch(SQLException e) {
 			return null;
 		}
 	}
 
-	public Fish readFish(String id) {
-		Fish f=null;
+	public Candidate readCandidate(String id) {
+		Candidate f=null;
 		try {
-			String sql="select * from fish where id=?";
+			String sql="select * from Candidate where id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()){
-				f=new Fish();
+				f=new Candidate();
 				f.setId(RS.getInt("id"));
 				f.setBreed(RS.getString("breed"));
 			}

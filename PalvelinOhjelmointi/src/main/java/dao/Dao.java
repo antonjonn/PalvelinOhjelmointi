@@ -42,20 +42,20 @@ public class Dao {
 			return false;
 		}
 	}
-	public ArrayList<Candidate> readAllCandidate() {
+	public ArrayList<Candidate> readAllCandidates() {
 		ArrayList<Candidate> list=new ArrayList<>();
 		try {
 			Statement stmt=conn.createStatement();
-			ResultSet RS=stmt.executeQuery("select * from Candidate");
+			ResultSet RS=stmt.executeQuery("select * from ehdokkaat");
 			while (RS.next()){
 				Candidate f=new Candidate();
-				f.setEhdokas_Id(RS.getString("ehdokas_id"));
+				f.setId(RS.getString("ehdokas_id"));
 				f.setSukunimi(RS.getString("sukunimi"));
 				f.setEtunimi(RS.getString("etunimi"));
 				f.setPuolue(RS.getString("puolue"));
 				f.setKotipaikkakunta(RS.getString("kotipaikkakunta"));
 				f.setIka(RS.getString("ika"));
-				f.setMiksi_Eduskuntaan(RS.getString("miksi_eduskuntaan"));
+				f.setMiksi_eduskuntaan(RS.getString("miksi_eduskuntaan"));
 				f.setMita_edistaa(RS.getString("mita_edistaa"));
 				f.setAmmatti(RS.getString("ammatti"));
 				list.add(f);
@@ -68,12 +68,12 @@ public class Dao {
 	}
 	public ArrayList<Candidate> updateCandidate(Candidate f) {
 		try {
-			String sql="update Candidate set breed=? where id=?";
+			String sql="update ehdokkaat set ika=? where id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, f.getBreed());
+			pstmt.setString(1, f.getIka());
 			pstmt.setInt(2, f.getId());
 			pstmt.executeUpdate();
-			return readAllCandidate();
+			return readAllCandidates();
 		}
 		catch(SQLException e) {
 			return null;
@@ -81,11 +81,11 @@ public class Dao {
 	}
 	public ArrayList<Candidate> deleteCandidate(String id) {
 		try {
-			String sql="delete from Candidate where id=?";
+			String sql="delete from ehdokkaat where id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.executeUpdate();
-			return readAllCandidate();
+			return readAllCandidates();
 		}
 		catch(SQLException e) {
 			return null;
@@ -95,19 +95,19 @@ public class Dao {
 	public Candidate readCandidate(String id) {
 		Candidate f=null;
 		try {
-			String sql="select * from Candidate where id=?";
+			String sql="select * from ehdokkaat where id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()){
 				f=new Candidate();
-				f.setEhdokas_Id(RS.getString("ehdokas_id"));
+				f.setId(RS.getString("ehdokas_id"));
 				f.setSukunimi(RS.getString("sukunimi"));
 				f.setEtunimi(RS.getString("etunimi"));
 				f.setPuolue(RS.getString("puolue"));
 				f.setKotipaikkakunta(RS.getString("kotipaikkakunta"));
 				f.setIka(RS.getString("ika"));
-				f.setMiksi_Eduskuntaan(RS.getString("miksi_eduskuntaan"));
+				f.setMiksi_eduskuntaan(RS.getString("miksi_eduskuntaan"));
 				f.setMita_edistaa(RS.getString("mita_edistaa"));
 				f.setAmmatti(RS.getString("ammatti"));
 				list.add(f);

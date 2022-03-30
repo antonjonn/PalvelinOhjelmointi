@@ -101,8 +101,16 @@ public class Dao {
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()){
 				f=new Candidate();
-				f.setId(RS.getInt("id"));
-				f.setBreed(RS.getString("breed"));
+				f.setEhdokas_Id(RS.getString("ehdokas_id"));
+				f.setSukunimi(RS.getString("sukunimi"));
+				f.setEtunimi(RS.getString("etunimi"));
+				f.setPuolue(RS.getString("puolue"));
+				f.setKotipaikkakunta(RS.getString("kotipaikkakunta"));
+				f.setIka(RS.getString("ika"));
+				f.setMiksi_Eduskuntaan(RS.getString("miksi_eduskuntaan"));
+				f.setMita_edistaa(RS.getString("mita_edistaa"));
+				f.setAmmatti(RS.getString("ammatti"));
+				list.add(f);
 			}
 			return f;
 		}

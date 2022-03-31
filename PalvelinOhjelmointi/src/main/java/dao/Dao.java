@@ -56,7 +56,7 @@ public class Dao {
 				f.setKotipaikkakunta(RS.getString("kotipaikkakunta"));
 				f.setIka(RS.getString("ika"));
 				f.setMiksi_eduskuntaan(RS.getString("miksi_eduskuntaan"));
-				f.setMita_edistaa(RS.getString("mita_edistaa"));
+				f.setMita_edistaa(RS.getString("MITA_ASIOITA_HALUAT_EDISTAA"));
 				f.setAmmatti(RS.getString("ammatti"));
 				list.add(f);
 			}
@@ -68,7 +68,7 @@ public class Dao {
 	}
 	public ArrayList<Candidate> updateCandidate(Candidate f) {
 		try {
-			String sql="update ehdokkaat set ika=? where id=?";
+			String sql="update ehdokkaat set ika=? where ehdokas_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, f.getIka());
 			pstmt.setInt(2, f.getId());
@@ -81,7 +81,7 @@ public class Dao {
 	}
 	public ArrayList<Candidate> deleteCandidate(String id) {
 		try {
-			String sql="delete from ehdokkaat where id=?";
+			String sql="delete from ehdokkaat where ehdokas_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.executeUpdate();
@@ -95,7 +95,7 @@ public class Dao {
 	public Candidate readCandidate(String id) {
 		Candidate f=null;
 		try {
-			String sql="select * from ehdokkaat where id=?";
+			String sql="select * from ehdokkaat where ehdokas_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			ResultSet RS=pstmt.executeQuery();
@@ -108,9 +108,9 @@ public class Dao {
 				f.setKotipaikkakunta(RS.getString("kotipaikkakunta"));
 				f.setIka(RS.getString("ika"));
 				f.setMiksi_eduskuntaan(RS.getString("miksi_eduskuntaan"));
-				f.setMita_edistaa(RS.getString("mita_edistaa"));
+				f.setMita_edistaa(RS.getString("MITA_ASIOITA_HALUAT_EDISTAA"));
 				f.setAmmatti(RS.getString("ammatti"));
-				list.add(f);
+		
 			}
 			return f;
 		}

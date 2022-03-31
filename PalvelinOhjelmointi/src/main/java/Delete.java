@@ -19,12 +19,12 @@ import data.Candidate;
 public class Delete extends HttpServlet {
 	private Dao dao;
 	public void init() {
-		dao=new Dao("jdbc:mysql://localhost:3306/fishdatabase", "root", "salasana");
+		dao=new Dao("jdbc:mysql://localhost:8080/vaalikone", "root", "salasana");
 	}
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 	     throws IOException, ServletException {
-		String id=request.getParameter("id");
+		String id=request.getParameter("ehdokas_id");
 		ArrayList<Candidate> list=null;
 		if (dao.getConnection()) {
 			list=dao.deleteCandidate(id);

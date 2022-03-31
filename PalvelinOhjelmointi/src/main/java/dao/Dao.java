@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import data.Candidate;
+import data.Question;
 
 import java.sql.Connection;
 
@@ -110,6 +111,71 @@ public class Dao {
 				f.setMiksi_eduskuntaan(RS.getString("miksi_eduskuntaan"));
 				f.setMita_edistaa(RS.getString("MITA_ASIOITA_HALUAT_EDISTAA"));
 				f.setAmmatti(RS.getString("ammatti"));
+		
+			}
+			return f;
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	
+	public ArrayList<Question> readAllQuestions() {
+		ArrayList<Question> list=new ArrayList<>();
+		try {
+			Statement stmt=conn.createStatement();
+			ResultSet RS=stmt.executeQuery("select * from kysymykset");
+			while (RS.next()){
+				Question f=new Question();
+				f.setKysymys_id(RS.getInt("kysymys_id"));
+				f.setKysymys(RS.getString("kysymys"));
+				list.add(f);
+			}
+			return list;
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	
+	public ArrayList<Question> updateQuestion(Question f) {
+		try {
+			String sql="update kysymykset set kysymys=? where kysymys_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, f.getKysymys());
+			pstmt.setInt(2, f.getKysymys_id());
+			pstmt.executeUpdate();
+			return readAllQuestions();
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	
+	public ArrayList<Question> deleteQuestion(String id) {
+		try {
+			String sql="delete from kysymykset where kysymys_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			return readAllQuestions();
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	
+	public Question readQuestion(String id) {
+		Question f=null;
+		try {
+			String sql="select * from kysymykset where kysymys_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet RS=pstmt.executeQuery();
+			while (RS.next()){
+				f=new Question();
+				f.setKysymys_id(RS.getInt("kysymys_id"));
+				f.setKysymys(RS.getString("kysymys"));
 		
 			}
 			return f;

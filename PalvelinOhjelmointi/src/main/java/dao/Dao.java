@@ -152,11 +152,11 @@ public class Dao {
 		}
 	}
 	
-	public ArrayList<Question> deleteQuestion(String id) {
+	public ArrayList<Question> deleteQuestion(int id) {
 		try {
 			String sql="delete from kysymykset where kysymys_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
 			return readAllQuestions();
 		}
@@ -165,12 +165,12 @@ public class Dao {
 		}
 	}
 	
-	public Question readQuestion(String id) {
+	public Question readQuestion(int id) {
 		Question f=null;
 		try {
 			String sql="select * from kysymykset where kysymys_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, id);
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()){
 				f=new Question();

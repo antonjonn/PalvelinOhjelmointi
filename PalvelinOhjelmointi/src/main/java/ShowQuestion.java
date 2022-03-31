@@ -44,7 +44,7 @@ public class ShowQuestion extends HttpServlet{
 		else {
 			System.out.println("No connection to database");
 		}
-		request.setAttribute("Questionlist", list);
+		request.setAttribute("questionlist", list);
 		
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showquestion.jsp");
 		rd.forward(request, response);

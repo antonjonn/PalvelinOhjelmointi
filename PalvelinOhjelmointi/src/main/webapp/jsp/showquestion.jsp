@@ -20,7 +20,7 @@
 <h2>Kysymykset</h2>
 <ol>
 <c:forEach var="question" items="${requestScope.questionlist}" >
-<li>${question.Kysymys_id}: ${question.kysymys} <a href='/delete?id=${question.Kysymys_id}'>delete</a> <a href='/readtoupdate?id=${question.Kysymys_id}'>update</a>
+<li>${question.kysymys_id}: ${question.kysymys} <a href='/delete?id=${question.kysymys_id}'>delete</a> <a href='/readtoupdate?id=${question.kysymys_id}'>update</a>
 </c:forEach>
 </ol>
 
@@ -28,6 +28,7 @@
 ArrayList<Question> questionList=(ArrayList<Question>)request.getAttribute("questionlist");
 
 for (int i=0;questionList!=null && i<questionList.size();i++){
+	
 	Question f=questionList.get(i);
 	out.println(f.getKysymys_id()+": "+f.getKysymys()+"<a href='/delete?id="+f.getKysymys_id()+"'>delete</a> <a href='/readtoupdate?id="+f.getKysymys_id()+"'>update</a>");
  //<%@ include file="../html/somehtml.html" //

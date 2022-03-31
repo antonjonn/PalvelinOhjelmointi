@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import data.Candidate;
+import data.Question;
 
 import java.sql.Connection;
 

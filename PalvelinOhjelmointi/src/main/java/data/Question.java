@@ -14,8 +14,8 @@ public class Question {
 	public int getKysymys_id() {
 		return kysymys_id;
 	}
-	public void setKysymys_id(int kysymys_id) {
-		this.kysymys_id = kysymys_id;
+	public void setKysymys_id(int Kysymys_id) {
+		this.kysymys_id = Kysymys_id;
 	}
 	public String getKysymys() {
 		return kysymys;

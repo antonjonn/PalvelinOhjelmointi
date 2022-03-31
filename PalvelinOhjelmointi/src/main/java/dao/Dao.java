@@ -126,8 +126,8 @@ public class Dao {
 			Statement stmt=conn.createStatement();
 			ResultSet RS=stmt.executeQuery("select * from kysymykset");
 			while (RS.next()){
-				Question f=new Candidate();
-				f.setKysymys_id(RS.getString("kysymys_id"));
+				Question f=new Question();
+				f.setKysymys_id(RS.getInt("kysymys_id"));
 				f.setKysymys(RS.getString("kysymys"));
 				list.add(f);
 			}
@@ -174,7 +174,7 @@ public class Dao {
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()){
 				f=new Question();
-				f.setKysymys_id(RS.getString("kysymys_id"));
+				f.setKysymys_id(RS.getInt("kysymys_id"));
 				f.setKysymys(RS.getString("kysymys"));
 		
 			}

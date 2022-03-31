@@ -20,7 +20,7 @@
 <h2>Kysymykset</h2>
 <ol>
 <c:forEach var="question" items="${requestScope.questionlist}" >
-<li>${question.id}: ${question.kysymys} <a href='/delete?id=${kysymys.id}'>delete</a> <a href='/readtoupdate?id=${kysymys.id}'>update</a>
+<li>${question.Kysymys_id}: ${question.kysymys} <a href='/delete?id=${question.Kysymys_id}'>delete</a> <a href='/readtoupdate?id=${question.Kysymys_id}'>update</a>
 </c:forEach>
 </ol>
 

@@ -56,7 +56,7 @@ public class Dao {
 				f.setKotipaikkakunta(RS.getString("kotipaikkakunta"));
 				f.setIka(RS.getString("ika"));
 				f.setMiksi_eduskuntaan(RS.getString("miksi_eduskuntaan"));
-				f.setMita_edistaa(RS.getString("mita_edistaa"));
+				f.setMita_edistaa(RS.getString("MITA_ASIOITA_HALUAT_EDISTAA"));
 				f.setAmmatti(RS.getString("ammatti"));
 				list.add(f);
 			}
@@ -73,7 +73,7 @@ public class Dao {
 			pstmt.setString(1, f.getIka());
 			pstmt.setInt(2, f.getId());
 			pstmt.executeUpdate();
-			return readAllCandidate();
+			return readAllCandidates();
 		}
 		catch(SQLException e) {
 			return null;
@@ -85,7 +85,7 @@ public class Dao {
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.executeUpdate();
-			return readAllCandidate();
+			return readAllCandidates();
 		}
 		catch(SQLException e) {
 			return null;
@@ -108,9 +108,9 @@ public class Dao {
 				f.setKotipaikkakunta(RS.getString("kotipaikkakunta"));
 				f.setIka(RS.getString("ika"));
 				f.setMiksi_eduskuntaan(RS.getString("miksi_eduskuntaan"));
-				f.setMita_edistaa(RS.getString("mita_edistaa"));
+				f.setMita_edistaa(RS.getString("MITA_ASIOITA_HALUAT_EDISTAA"));
 				f.setAmmatti(RS.getString("ammatti"));
-				list.add(f);
+		
 			}
 			return f;
 		}

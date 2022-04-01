@@ -185,5 +185,28 @@ public class Dao {
 		}
 	}
 	
-	
+
+	public Answer readAnswer(int candidate_id) {
+		Answer f=null;
+		try {
+			String sql="select * from vastaukset where ehdokas_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, candiate_id);
+			ResultSet RS=pstmt.executeQuery();
+			while (RS.next()){
+				f=new Answer();
+				f.setKysymys_id(RS.getInt("kysymys_id"));
+				f.setKommentti(RS.getString("kommentti"));
+				f.setEhdokas_id(RS.getInt("ehdokas_id"));
+				f.setVastaus(RS.getInt("vastaus"));
+		
+			}
+			return f;
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+
+
 }

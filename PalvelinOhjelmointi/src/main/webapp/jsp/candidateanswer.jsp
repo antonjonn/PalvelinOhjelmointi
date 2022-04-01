@@ -10,23 +10,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Vaalikone</title>
+<title>V</title>
 
 <link rel="stylesheet" type="text/css" href="mycssfilesomewhere.css">
 <script src="myscriptfile.js"></script>
 
 </head>
 <body>
-<h2>El vaalikone</h2>
+<h2>El vaalikone1</h2>
 <ol>
 <c:forEach var="candidate" items="${requestScope.candidatelist}" >
-<li>${candidate.id}: ${candidate.etunimi} ${candidate.sukunimi} <a href='/candidateanswer'>Select Candidate</a> <a href='/readtoupdate?id=${candidate.id}'>update</a>
+<li>${candidate.id}: ${candidate.etunimi} ${candidate.sukunimi} <a href='/delete?id=${candidate.id}'>delete</a> <a href='/readtoupdate?id=${candidate.id}'>update</a>
 </c:forEach>
 </ol>
 
 <%
 ArrayList<Candidate> candidateList=(ArrayList<Candidate>)request.getAttribute("candidatelist");
-//?id=${candidate.id}
+
 for (int i=0;candidateList!=null && i<candidateList.size();i++){
 	Candidate f=candidateList.get(i);
 	out.println(f.getId()+": "+f.getEtunimi()+"<a href='/delete?id="+f.getId()+"'>delete</a> <a href='/readtoupdate?id="+f.getId()+"'>update</a>");

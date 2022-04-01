@@ -20,7 +20,7 @@ public class Read extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao;
 	public void init() {
-		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "root", "332495");
+		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "root", "salasana");
 	}
        
     /**

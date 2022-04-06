@@ -11,23 +11,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Vaalikone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="mycssfilesomewhere.css">
 <script src="myscriptfile.js"></script>
 
 </head>
 <body>
-<h2>Kysymykset</h2>
-<ol>
-<c:forEach var="question" items="${requestScope.questionlist}" >
-<li>${question.Kysymys_id}: ${question.kysymys} <a href='/delete?id=${question.Kysymys_id}'>delete</a> <a href='/readtoupdate?id=${question.Kysymys_id}'>update</a>
-</c:forEach>
-</ol>
-
+<h1>Kysymykset</h1>
+<div class="container">
+	<div class="row justify-content-center">
+		<ol>
+			<c:forEach var="question" items="${requestScope.questionlist}" >
+				<li>${question.kysymys_id}: ${question.kysymys} <br><a href='/delete?id=${question.kysymys_id}'>Delete</a> <a href='/readtoupdate?id=${question.kysymys_id}'>Update</a>
+			</c:forEach>
+		</ol>
+	</div>
+</div>
 <%
 ArrayList<Question> questionList=(ArrayList<Question>)request.getAttribute("questionlist");
 
 for (int i=0;questionList!=null && i<questionList.size();i++){
+	
 	Question f=questionList.get(i);
 	out.println(f.getKysymys_id()+": "+f.getKysymys()+"<a href='/delete?id="+f.getKysymys_id()+"'>delete</a> <a href='/readtoupdate?id="+f.getKysymys_id()+"'>update</a>");
  //<%@ include file="../html/somehtml.html" //

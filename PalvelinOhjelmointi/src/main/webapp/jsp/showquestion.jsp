@@ -23,7 +23,7 @@
 	<div class="row justify-content-center">
 		<ol>
 			<c:forEach var="question" items="${requestScope.questionlist}" >
-				<li>${question.kysymys_id}: ${question.kysymys} <br><a href='/delete?id=${question.kysymys_id}'>Delete</a> <a href='/readtoupdate?id=${question.kysymys_id}'>Update</a>
+				<li>${question.kysymys_id}: ${question.kysymys} <br><a href='/delete?id=${question.kysymys_id}'>Delete</a> <a href='/updatequestion?id=${question.kysymys_id}'>Update</a>
 			</c:forEach>
 		</ol>
 	</div>

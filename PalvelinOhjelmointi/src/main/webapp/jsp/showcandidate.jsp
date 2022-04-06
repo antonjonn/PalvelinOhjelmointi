@@ -33,22 +33,20 @@ for (int i=0;candidateList!=null && i<candidateList.size();i++){
 	
 	//out.println("<form name=" + "sendId" + "method=POST" + f.getId()+": "+f.getEtunimi()+ "<a href='/jsp/candidateanswer.jsp"+"'>Select Candidate</a>" + "</form>");
 
-	
+	out.println("<form name=submitForm method=" + "POST" + "action=" + "/jsp/candidateanswer.jsp" + ">");
 	out.println(
 		"<form name=submitForm method=" + "POST" + "action=" + "/jsp/candidateanswer.jsp" + ">"
-		+ "<input type=" + "button"  + " " + "name=" + "param1"  + " " +  "value=" + f.getId() + " >" +
-    "<A HREF=" + "/jsp/candidateanswer.jsp" + ">" +  f.getEtunimi() + " " +  f.getSukunimi() +  "</A>" + 
-	"</form>" 
-    		//+
+		+ "<input type=" + "checkbox"  + " " + "name=" + "param1"  + " " +  "value=" + f.getId() + " >" +
+    "<A HREF=" + "/jsp/candidateanswer.jsp" + ">" +  f.getEtunimi() + " " +  f.getSukunimi() +  "</A>"  
+	
 	//"<input type=" + "button"  + "id=" + f.getId() + "name=" + "fav_language" + "value=" + "HTML" + ">"
     
+	
     );
 	
-	//<a href='/readtoupdate?id="+f.getId()+"'>update</a> 
-	//out.println(i);
-	//<%@ include file="../html/somehtml.html" //+f.getId() ?id=" +f.getId()
 }
 
+	out.println("'</form>' '<button type='submit'>Delete'</button>");
 %>
 
 

@@ -36,9 +36,11 @@ for (int i=0;candidateList!=null && i<candidateList.size();i++){
 	
 	out.println(
 		"<form name=submitForm method=" + "POST" + "action=" + "/jsp/candidateanswer.jsp" + ">"
-		+ "<input type=" + "hidden"  + " " + "name=" + "param1"  + " " +  "value=" + f.getId() + " >" +
+		+ "<input type=" + "button"  + " " + "name=" + "param1"  + " " +  "value=" + f.getId() + " >" +
     "<A HREF=" + "/jsp/candidateanswer.jsp" + ">" +  f.getEtunimi() + " " +  f.getSukunimi() +  "</A>" + 
-	"</form>"
+	"</form>" 
+    		//+
+	//"<input type=" + "button"  + "id=" + f.getId() + "name=" + "fav_language" + "value=" + "HTML" + ">"
     
     );
 	

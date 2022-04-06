@@ -153,11 +153,11 @@ public class Dao {
 		}
 	}
 	
-	public ArrayList<Question> deleteQuestion(int id) {
+	public ArrayList<Question> deleteQuestion(String id) {
 		try {
 			String sql="delete from kysymykset where kysymys_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, id);
+			pstmt.setInt(1, Integer.parseInt(id));
 			pstmt.executeUpdate();
 			return readAllQuestions();
 		}

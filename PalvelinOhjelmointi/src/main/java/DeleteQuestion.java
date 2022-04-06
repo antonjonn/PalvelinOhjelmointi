@@ -16,21 +16,25 @@ import data.Question;
     name = "DeleteQuestion",
     urlPatterns = {"/deleteQuestion"}
 )
-public class Delete extends HttpServlet {
+public class DeleteQuestion extends HttpServlet {
 	private Dao dao;
 	public void init() {
-		dao=new Dao("jdbc:mysql://localhost:8080/vaalikone", "root", "salasana");
+		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "root", "salasana");
 	}
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 	     throws IOException, ServletException {
-		String id=request.getParameter("id");
-		ArrayList<Question> list=null;
+		int id=Integer.parseInt(request.getParameter("id"));
+		//ArrayList<Question> list=dao.readAllQuestions();
 		if (dao.getConnection()) {
-			list=dao.deleteQuestion(id);
+			dao.deleteQuestion(id);
 		}
-		request.setAttribute("questionlist", list);
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showquestion.jsp");
-		rd.forward(request, response);
+		else {
+			System.out.println("connection failed");
+		}
+		
+		//request.setAttribute();//"questionlist", list
+		
+		response.sendRedirect("showquestion");
 	}
 }

@@ -16,7 +16,7 @@ import data.Candidate;
     name = "Delete",
     urlPatterns = {"/delete"}
 )
-public class Delete extends HttpServlet {
+public class DeleteCandidate extends HttpServlet {
 	private Dao dao;
 	public void init() {
 		dao=new Dao("jdbc:mysql://localhost:8080/vaalikone", "root", "salasana");

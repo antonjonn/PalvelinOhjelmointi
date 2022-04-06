@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import data.Answer;
 import data.Candidate;
 import data.Question;
 
@@ -191,7 +192,7 @@ public class Dao {
 		try {
 			String sql="select * from vastaukset where ehdokas_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, candiate_id);
+			pstmt.setInt(1, candidate_id);
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()){
 				f=new Answer();

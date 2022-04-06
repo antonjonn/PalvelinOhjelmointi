@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- 
- <%@ page import="java.util.ArrayList" %>   
- <%@ page import="data.Candidate" %>   
-    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-    
+	pageEncoding="UTF-8"%>
+
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="data.Candidate"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,22 +17,35 @@
 
 </head>
 <body>
-<h2>El vaalikone</h2>
-<ol>
-<c:forEach var="candidate" items="${requestScope.candidatelist}" >
-<li>${candidate.id}: ${candidate.etunimi} ${candidate.sukunimi} <a href='/jsp/candidateanswer.jsp'>Select Candidate</a> <a href='/readtoupdate?id=${candidate.id}'>update</a>
-</c:forEach>
-</ol>
+	<h2>El vaalikone</h2>
+	<ol>
 
-<%
+	</ol>
+	<h1>Vaalikone</h1>
+	<%
 ArrayList<Candidate> candidateList=(ArrayList<Candidate>)request.getAttribute("candidatelist");
 //?id=${candidate.id}
 for (int i=0;candidateList!=null && i<candidateList.size();i++){
 	Candidate f=candidateList.get(i);
-	out.println(f.getId()+": "+f.getEtunimi()+"<a href='/jsp/candidateanswer.jsp"+"'>Select Candidate</a> <a href='/readtoupdate?id="+f.getId()+"'>update</a>");
- 
+	
+	//out.println(f.getId()+": "+f.getEtunimi()+"<a href='/jsp/candidateanswer.jsp"+"'>Select Candidate</a> <br>");
+	
+	//out.println("<form name=" + "sendId" + "method=POST" + f.getId()+": "+f.getEtunimi()+ "<a href='/jsp/candidateanswer.jsp"+"'>Select Candidate</a>" + "</form>");
+
+	
+	out.println(
+		"<form name=submitForm method=" + "POST" + "action=" + "/jsp/candidateanswer.jsp" + ">"
+		+ "<input type=" + "hidden"  + " " + "name=" + "param1"  + " " +  "value=" + f.getId() + " >" +
+    "<A HREF=" + "/jsp/candidateanswer.jsp" + ">" +  f.getEtunimi() + " " +  f.getSukunimi() +  "</A>" + 
+	"</form>"
+    
+    );
+	
+	//<a href='/readtoupdate?id="+f.getId()+"'>update</a> 
+	//out.println(i);
 	//<%@ include file="../html/somehtml.html" //+f.getId() ?id=" +f.getId()
 }
+
 %>
 
 

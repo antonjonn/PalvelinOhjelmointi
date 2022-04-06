@@ -18,23 +18,10 @@
 
 </head>
 <body>
-<h2>El vaalikone1</h2>
-<ol>
-
-<c:forEach var="candidate" items="${requestScope.candidatelist}" >
-<li>${candidate.id}: ${candidate.etunimi} ${candidate.sukunimi} <a href='/delete?id=${candidate.id}'>delete</a> <a href='/readtoupdate?id=${candidate.id}'>update</a>
-</c:forEach>
-</ol>
+<h2>Cantitaatti</h2>
 
 <%
 
-// ArrayList<Candidate> candidateList=(ArrayList<Candidate>)request.getAttribute("candidatelist");
-
-// for (int i=0;candidateList!=null && i<candidateList.size();i++){
-// 	Candidate f=candidateList.get(i);
-// 	out.println(f.getId()+": "+f.getEtunimi()+"<a href='/delete?id="+f.getId()+"'>delete</a> <a href='/readtoupdate?id="+f.getId()+"'>update</a>");
- //<%@ include file="../html/somehtml.html" //
-// }
 %>
 
 

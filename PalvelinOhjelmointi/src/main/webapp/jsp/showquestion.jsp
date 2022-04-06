@@ -23,7 +23,7 @@
 	<div class="row justify-content-center">
 		<ol>
 			<c:forEach var="question" items="${requestScope.questionlist}" >
-				<li>${question.kysymys_id}: ${question.kysymys} <br><a href='/delete?id=${question.kysymys_id}'>Delete</a> <a href='/readtoupdate?id=${question.kysymys_id}'>Update</a>
+				<li>${question.kysymys_id}: ${question.kysymys} <br><a href='/deleteQuestion?id=${question.kysymys_id}'>Delete</a> <a href='/readtoupdate?id=${question.kysymys_id}'>Update</a>
 			</c:forEach>
 		</ol>
 	</div>
@@ -34,7 +34,7 @@ ArrayList<Question> questionList=(ArrayList<Question>)request.getAttribute("ques
 for (int i=0;questionList!=null && i<questionList.size();i++){
 	
 	Question f=questionList.get(i);
-	out.println(f.getKysymys_id()+": "+f.getKysymys()+"<a href='/delete?id="+f.getKysymys_id()+"'>delete</a> <a href='/readtoupdate?id="+f.getKysymys_id()+"'>update</a>");
+	out.println(f.getKysymys_id()+": "+f.getKysymys()+"<a href='/deleteQuestion?id="+f.getKysymys_id()+"'>delete</a> <a href='/readtoupdate?id="+f.getKysymys_id()+"'>update</a>");
  //<%@ include file="../html/somehtml.html" //
 }
 %>

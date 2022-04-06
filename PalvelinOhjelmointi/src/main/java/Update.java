@@ -2,6 +2,8 @@
 import dao.Dao;
 import data.Question
 
+@WebServlet("/updatequestion")
+
 public class Update extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao = null;
@@ -21,7 +23,7 @@ public void init() {
 
   }
 
-public Udpate() {
+public Update() {
     super();
     // TODO Auto-generated constructor stub
 }

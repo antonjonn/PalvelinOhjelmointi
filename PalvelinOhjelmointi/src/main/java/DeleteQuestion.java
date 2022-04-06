@@ -14,7 +14,7 @@ import data.Question;
 
 @WebServlet(
     name = "DeleteQuestion",
-    urlPatterns = {"/deletequestion"}
+    urlPatterns = {"/deleteQuestion"}
 )
 public class Delete extends HttpServlet {
 	private Dao dao;

@@ -185,6 +185,7 @@ public class Dao {
 		}
 	}
 	
+
 	public Answer readAnswer(int candidate_id) {
 		Answer f=null;
 		try {
@@ -206,4 +207,6 @@ public class Dao {
 			return null;
 		}
 	}
+
+
 }

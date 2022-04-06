@@ -3,7 +3,7 @@
  
  <%@ page import="java.util.ArrayList" %>   
  <%@ page import="data.Question" %>  
- <%@ page import="data.Update" %>    
+ <%@ page import="java.Update" %>    
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
     
@@ -35,7 +35,6 @@
         <td><input type="text" name="kysymys" required></td>
       </tr>
       <tr>
-        <td></td>
         <td align="center"><input type="submit" name="Action"
           value="Edit"></td>
       </tr>

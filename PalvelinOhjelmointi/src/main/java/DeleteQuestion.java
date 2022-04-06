@@ -14,7 +14,7 @@ import data.Question;
 
 @WebServlet(
     name = "DeleteQuestion",
-    urlPatterns = {"/deletequestion"}
+    urlPatterns = {"/deleteQuestion"}
 )
 public class Delete extends HttpServlet {
 	private Dao dao;
@@ -24,7 +24,7 @@ public class Delete extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 	     throws IOException, ServletException {
-		String id=request.getParameter("kysymys_id");
+		String id=request.getParameter("id");
 		ArrayList<Question> list=null;
 		if (dao.getConnection()) {
 			list=dao.deleteQuestion(id);

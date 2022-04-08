@@ -48,10 +48,11 @@ public CreateQuestion() {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Question f = null;
-
-		
+		String kysymys = request.getParameter("kysymys");	
+		f = new Question(kysymys);
 		if (dao.getConnection()) {
 			dao.createQuestion(f);
+			
 		}
 			 else {
 			System.out.println("No connection to database");
@@ -59,7 +60,7 @@ public CreateQuestion() {
 		
 		
 		request.setAttribute("question", f);
-		response.sendRedirect("/jsp/showquestion.jsp"); 
+		response.sendRedirect("showquestion"); 
 		}
 		//RequestDispatcher rd = request.getRequestDispatcher("/jsp/updatequestion.jsp");
 		//rd.forward(request, response);

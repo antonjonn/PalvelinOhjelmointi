@@ -157,9 +157,10 @@ public class Dao {
 	
 	public void createQuestion(Question f) {
 		try {
-			String sql = "insert into kysymykset (KYSYMYS) VALUES(?);";
+			String kysymys = f.getKysymys();
+			String sql = "insert into kysymykset (KYSYMYS) VALUES(?)";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "kysymys");
+			pstmt.setString(1, kysymys);
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {

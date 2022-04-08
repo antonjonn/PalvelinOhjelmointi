@@ -48,22 +48,17 @@ public Update() {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Question f = null;
-//		ArrayList<Question> list = null;
+		ArrayList<String> list = null;
 		int id = Integer.parseInt(request.getParameter("id"));
 		if (dao.getConnection()) {
-//			//list = dao.updateQuestion(null);
 			f = dao.readQuestion(id);
-			
-			ArrayList<String> f = new ArrayList<String>();
-			if (dao.getConnection()) {
-				candi = dao.readCandidate(id);
-				f.add(candi.getEtunimi());
+			list.add(f.getKysymys_id(), f.getKysymys());
 		} else {
 			System.out.println("No connection to database");
 		}
 		
 		
-		request.setAttribute("question", f);
+		request.setAttribute("question", list);
 		response.sendRedirect("/jsp/updatequestion.jsp");
 		//RequestDispatcher rd = request.getRequestDispatcher("/jsp/updatequestion.jsp");
 		//rd.forward(request, response);

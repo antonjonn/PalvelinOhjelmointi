@@ -46,6 +46,10 @@ out.println(f.getKysymys());
         <td><input type="text" name="kysymys" value="<%out.println(f.getKysymys()); %>" required></td>
       </tr>
       <tr>
+        <td>Järjestys numero</td>
+        <td><input type="text" name="kysjar" value="<%out.println(f.getKysjar());%>" required></td>
+      </tr>
+      <tr>
         <td align="center"><input type="submit" name="Action"
           value="Edit"></td>
       </tr>

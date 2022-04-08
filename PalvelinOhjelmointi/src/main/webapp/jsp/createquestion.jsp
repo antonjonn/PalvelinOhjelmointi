@@ -25,7 +25,7 @@
 String Kysymys = request.getParameter("kysymys");
 
 %>
-	<form action="NewQuestion" method="post">
+	<form action="/createquestion" method="post">
 	
     <table border="1" align="center" cellpadding="5"
       style="font-size: 200%; font-family: inherit; font-style: normal; background-color: window;">

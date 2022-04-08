@@ -153,15 +153,15 @@ public class Dao {
 		}
 	}
 	
-	public ArrayList<Question> createQuestion(Question f) {
+	public void createQuestion(Question f) {
 		try {
-			String sql = "";
+			String sql = "insert into kysymykset (KYSYMYS) VALUES(?);";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, kysymys);
+			pstmt.setString(1, "kysymys");
 			pstmt.executeUpdate();
-			return readAllQuestions();
+			
 		} catch (SQLException e) {
-			return null;
+			System.out.println("shit pant");
 		}
 	}
 	

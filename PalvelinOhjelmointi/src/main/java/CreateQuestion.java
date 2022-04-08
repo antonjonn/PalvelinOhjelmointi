@@ -45,27 +45,24 @@ public CreateQuestion() {
 	/**
 	 *
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Question f = null;
-//		ArrayList<Question> list = null;
-		int id = Integer.parseInt(request.getParameter("id"));
+
+		
 		if (dao.getConnection()) {
-//			//list = dao.updateQuestion(null);
-			f = dao.readQuestion(id);
-			
-			ArrayList<String> f = new ArrayList<String>();
-			if (dao.getConnection()) {
-				candi = dao.readCandidate(id);
-				f.add(candi.getEtunimi());
-		} else {
+			dao.createQuestion(f);
+		}
+			 else {
 			System.out.println("No connection to database");
 		}
 		
 		
 		request.setAttribute("question", f);
-		response.sendRedirect("/jsp/createquestion.jsp");
+		response.sendRedirect("/jsp/showquestion.jsp"); 
+		}
 		//RequestDispatcher rd = request.getRequestDispatcher("/jsp/updatequestion.jsp");
 		//rd.forward(request, response);
-	}
+	
+
 }

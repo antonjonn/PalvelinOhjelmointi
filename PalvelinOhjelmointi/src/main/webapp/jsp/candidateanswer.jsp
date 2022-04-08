@@ -21,6 +21,8 @@
 <h2>Cantitaatti</h2>
 
 <%
+request.getAttribute("candidateanswer");
+ArrayList<String> f = new ArrayList<String>();
 
 %>
 

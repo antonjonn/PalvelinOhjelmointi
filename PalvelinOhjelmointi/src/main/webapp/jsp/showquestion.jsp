@@ -31,14 +31,14 @@
 	</div>
 </div>
 <%
-ArrayList<Question> questionList=(ArrayList<Question>)request.getAttribute("questionlist");
+// ArrayList<Question> questionList=(ArrayList<Question>)request.getAttribute("questionlist");
 
-for (int i=0;questionList!=null && i<questionList.size();i++){
+// for (int i=0;questionList!=null && i<questionList.size();i++){
 	
-	Question f=questionList.get(i);
-	out.println(f.getKysymys_id()+": "+f.getKysymys()+"<a href='/deleteQuestion?id="+f.getKysymys_id()+"'>delete</a> <a href='/readtoupdate?id="+f.getKysymys_id()+"'>update</a>");
+//	Question f=questionList.get(i);
+	//out.println(f.getKysymys_id()+": "+f.getKysymys()+"<a href='/deleteQuestion?id="+f.getKysymys_id()+"'>delete</a> <a href='/readtoupdate?id="+f.getKysymys_id()+"'>update</a>");
  //<%@ include file="../html/somehtml.html" //
-}
+//}
 %>
 
 

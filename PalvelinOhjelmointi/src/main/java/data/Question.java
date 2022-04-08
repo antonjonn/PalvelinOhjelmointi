@@ -3,10 +3,18 @@ package data;
 public class Question {
 	private int kysymys_id;
 	private String kysymys;
+	private int kysjar;
+
 	
 	public Question(int kysymys_id, String kysymys) {
 		this.kysymys_id=kysymys_id;
 		this.kysymys=kysymys;
+	}
+	
+	public Question(int kysymys_id, String kysymys, int kysjar) {
+		this.kysymys_id=kysymys_id;
+		this.kysymys=kysymys;
+		this.kysjar.kysjar
 	}
 	public Question() {
 		// TODO el constructor
@@ -24,5 +32,11 @@ public class Question {
 		this.kysymys = kysymys;
 	}
 	
+	public int getKysjar() {
+		return kysjar;
+	}
+	public void setKysjar(int kysjar) {
+		this.kysjar = kysjar;
+	}
 	
 }

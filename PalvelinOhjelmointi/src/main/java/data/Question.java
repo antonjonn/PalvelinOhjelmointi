@@ -10,11 +10,15 @@ public class Question {
 		this.kysymys_id=kysymys_id;
 		this.kysymys=kysymys;
 	}
+	public Question(String kysymys) {
+		this.kysymys=kysymys;
+	}
+	
 	
 	public Question(int kysymys_id, String kysymys, int kysjar) {
 		this.kysymys_id=kysymys_id;
 		this.kysymys=kysymys;
-		this.kysjar.kysjar
+		this.kysjar = kysjar;
 	}
 	public Question() {
 		// TODO el constructor

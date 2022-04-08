@@ -71,8 +71,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("kysymys_id"));
 		String kysymys = request.getParameter("kysymys");
+		int kysjar = Integer.parseInt(request.getParameter("kysjar"));
 		if (dao.getConnection()) {
-			dao.updateQuestion(id, kysymys);
+			dao.updateQuestion(id, kysymys, kysjar);
 		} else {
 			System.out.println("No connection to database");
 		}

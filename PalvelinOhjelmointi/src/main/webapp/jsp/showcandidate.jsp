@@ -27,23 +27,18 @@
 ArrayList<Candidate> candidateList=(ArrayList<Candidate>)request.getAttribute("candidatelist");
 //?id=${candidate.id}
 
-out.println("<form name=submitForm method=" + "POST" + " action=" + "/jsp/candidateanswer.jsp" + ">");
+
 for (int i=0;candidateList!=null && i<candidateList.size();i++){
 	Candidate f=candidateList.get(i);
 	
-	//out.println(f.getId()+": "+f.getEtunimi()+"<a href='/jsp/candidateanswer.jsp"+"'>Select Candidate</a> <br>");
+	out.println(f.getId()+": "+f.getEtunimi()+"<a href='/CandidateAnswer?id="+ f.getId() + "'>Select Candidate</a> <br>");
 	
 	//out.println("<form name=" + "sendId" + "method=POST" + f.getId()+": "+f.getEtunimi()+ "<a href='/jsp/candidateanswer.jsp"+"'>Select Candidate</a>" + "</form>");
-	out.println(
-		"<input type=" + "checkbox" + " name=" + "param1"  + " value=" + f.getId() + " >" +
-    "<A HREF=" + "/jsp/candidateanswer.jsp" + ">" +  f.getEtunimi() + " " +  f.getSukunimi() +  "</A>" + "\n" 
 	
-	//"<input type=" + "button"  + "id=" + f.getId() + "name=" + "fav_language" + "value=" + "HTML" + ">"
     
 	
-    );
 	}
-out.println("</form>" + "<button type=" + "submit" + ">Delete </button>");
+
 %>
 
 

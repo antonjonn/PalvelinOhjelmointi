@@ -94,12 +94,12 @@ public class Dao {
 		}
 	}
 
-	public Candidate readCandidate(String id) {
+	public Candidate readCandidate(int id) {
 		Candidate f=null;
 		try {
 			String sql="select * from ehdokkaat where ehdokas_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, id);
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()){
 				f=new Candidate();

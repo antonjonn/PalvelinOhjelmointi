@@ -125,11 +125,12 @@ public class Dao {
 		ArrayList<Question> list=new ArrayList<>();
 		try {
 			Statement stmt=conn.createStatement();
-			ResultSet RS=stmt.executeQuery("select * from kysymykset");
+			ResultSet RS=stmt.executeQuery("select * from kysymykset order by kys_jar");
 			while (RS.next()){
 				Question f=new Question();
 				f.setKysymys_id(RS.getInt("kysymys_id"));
 				f.setKysymys(RS.getString("kysymys"));
+				f.setKysjar(RS.getInt("kys_jar"));
 				list.add(f);
 			}
 			return list;
@@ -139,12 +140,13 @@ public class Dao {
 		}
 	}
 	
-	public void updateQuestion(int kysymys_id, String kysymys) {
+	public void updateQuestion(int kysymys_id, String kysymys, int kysjar) {
 		try {
-			String sql="update kysymykset set kysymys=? where kysymys_id=?";
+			String sql="update kysymykset set kysymys=?, kys_jar=? where kysymys_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, kysymys);
-			pstmt.setInt(2, kysymys_id);
+			pstmt.setInt(2, kysjar);
+			pstmt.setInt(3, kysymys_id);
 			pstmt.executeUpdate();
 			
 		}
@@ -189,6 +191,7 @@ public class Dao {
 				f=new Question();
 				f.setKysymys_id(RS.getInt("kysymys_id"));
 				f.setKysymys(RS.getString("kysymys"));
+				f.setKysjar(RS.getInt("kys_jar"));
 		
 			}
 			return f;

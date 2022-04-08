@@ -80,25 +80,25 @@ INSERT INTO EHDOKKAAT VALUES (19, "Andersson ", "Cosmo", "Vasemmistoliitto", "Jo
 INSERT INTO EHDOKKAAT VALUES (20, "Andersson", "Essi", "Suomen ruotsalainen kansanpuolue", "Kouvola", 63, "SUOMEN TALOUSNäKYMäT OVAT KATASTROFAALISIA  On tärkeä alkaa kohottamaan Suomen taloutta.   Sitä varten pitää saada päätäsvallan Suomeen  eroamalla EU:sta ja jostakin muista liitoista.", "Mnulla on fysiikan tohtorina vahva tieteellinen koulutus ja ohjelmistoyrittäjänä paljon kokemusta yhteiskunnasta, ml. julkishallinnosta. Näkemys ja kyky uudistuksiin on vahvuuteni.", "rakennusmestari");
 
 -- insert values into the table kysymykset
-INSERT INTO KYSYMYKSET VALUES (1, "Suomessa on liian helppo elää sosiaaliturvan varassa");
-INSERT INTO KYSYMYKSET VALUES (2, "Kaupan ja muiden liikkeiden aukioloajat on vapautettava.");
-INSERT INTO KYSYMYKSET VALUES (3, "Suomessa on siirryttävä perustuloon joka korvaisi nykyisen sosiaaliturvan vähimmäistason.");
-INSERT INTO KYSYMYKSET VALUES (4, "Tyäntekijälle on turvattava lailla minimityäaika.");
-INSERT INTO KYSYMYKSET VALUES (5, "Ansiosidonnaisen tyättämyysturvan kestoa pitää lyhentää.");
-INSERT INTO KYSYMYKSET VALUES (6, "Euron ulkopuolella Suomi pärjäisi paremmin.");
-INSERT INTO KYSYMYKSET VALUES (7, "Ruoan verotusta on varaa kiristää.");
-INSERT INTO KYSYMYKSET VALUES (8, "Valtion ja kuntien taloutta on tasapainotettava ensisijaisesti leikkaamalla menoja.");
-INSERT INTO KYSYMYKSET VALUES (9, "Lapsilisiä on korotettava ja laitettava verolle.");
-INSERT INTO KYSYMYKSET VALUES (10, "Suomella ei ole varaa nykyisen laajuisiin sosiaali- ja terveyspalveluihin.");
-INSERT INTO KYSYMYKSET VALUES (11, "Nato-jäsenyys vahvistaisi Suomen turvallisuuspoliittista asemaa.");
-INSERT INTO KYSYMYKSET VALUES (12, "Suomeen tarvitaan enemmän poliiseja.");
-INSERT INTO KYSYMYKSET VALUES (13, "Maahanmuuttoa Suomeen on rajoitettava terrorismin uhan vuoksi.");
-INSERT INTO KYSYMYKSET VALUES (14, "Venäjän etupiiripolitiikka on uhka Suomelle.");
-INSERT INTO KYSYMYKSET VALUES (15, "Verkkovalvonnassa valtion turvallisuus on tärkeämpää kuin kansalaisten yksityisyyden suoja.");
-INSERT INTO KYSYMYKSET VALUES (16, "Suomen on osallistuttava Isisin vastaiseen taisteluun kouluttamalla Irakin hallituksen joukkoja.");
-INSERT INTO KYSYMYKSET VALUES (17, "Parantumattomasti sairaalla on oltava oikeus avustettuun kuolemaan.");
-INSERT INTO KYSYMYKSET VALUES (18, "Terveys- ja sosiaalipalvelut on tuotettava ensijaisesti julkisina palveluina.");
-INSERT INTO KYSYMYKSET VALUES (19, "Viranomaisten pitää puuttua lapsiperheiden ongelmiin nykyistä herkemmin.");
+INSERT INTO KYSYMYKSET VALUES (1, "Suomessa on liian helppo elää sosiaaliturvan varassa", 1);
+INSERT INTO KYSYMYKSET VALUES (2, "Kaupan ja muiden liikkeiden aukioloajat on vapautettava.", 2);
+INSERT INTO KYSYMYKSET VALUES (3, "Suomessa on siirryttävä perustuloon joka korvaisi nykyisen sosiaaliturvan vähimmäistason.", 3);
+INSERT INTO KYSYMYKSET VALUES (4, "Tyäntekijälle on turvattava lailla minimityäaika.", 4);
+INSERT INTO KYSYMYKSET VALUES (5, "Ansiosidonnaisen tyättämyysturvan kestoa pitää lyhentää.", 5);
+INSERT INTO KYSYMYKSET VALUES (6, "Euron ulkopuolella Suomi pärjäisi paremmin.", 6);
+INSERT INTO KYSYMYKSET VALUES (7, "Ruoan verotusta on varaa kiristää.", 7);
+INSERT INTO KYSYMYKSET VALUES (8, "Valtion ja kuntien taloutta on tasapainotettava ensisijaisesti leikkaamalla menoja.", 8);
+INSERT INTO KYSYMYKSET VALUES (9, "Lapsilisiä on korotettava ja laitettava verolle.", 9);
+INSERT INTO KYSYMYKSET VALUES (10, "Suomella ei ole varaa nykyisen laajuisiin sosiaali- ja terveyspalveluihin.", 10);
+INSERT INTO KYSYMYKSET VALUES (11, "Nato-jäsenyys vahvistaisi Suomen turvallisuuspoliittista asemaa.", 11);
+INSERT INTO KYSYMYKSET VALUES (12, "Suomeen tarvitaan enemmän poliiseja.", 12);
+INSERT INTO KYSYMYKSET VALUES (13, "Maahanmuuttoa Suomeen on rajoitettava terrorismin uhan vuoksi.", 13);
+INSERT INTO KYSYMYKSET VALUES (14, "Venäjän etupiiripolitiikka on uhka Suomelle.", 14);
+INSERT INTO KYSYMYKSET VALUES (15, "Verkkovalvonnassa valtion turvallisuus on tärkeämpää kuin kansalaisten yksityisyyden suoja.", 15);
+INSERT INTO KYSYMYKSET VALUES (16, "Suomen on osallistuttava Isisin vastaiseen taisteluun kouluttamalla Irakin hallituksen joukkoja.", 16);
+INSERT INTO KYSYMYKSET VALUES (17, "Parantumattomasti sairaalla on oltava oikeus avustettuun kuolemaan.", 17);
+INSERT INTO KYSYMYKSET VALUES (18, "Terveys- ja sosiaalipalvelut on tuotettava ensijaisesti julkisina palveluina.", 18);
+INSERT INTO KYSYMYKSET VALUES (19, "Viranomaisten pitää puuttua lapsiperheiden ongelmiin nykyistä herkemmin.", 19);
 
 -- insert values into the table vastaukset
 INSERT INTO VASTAUKSET VALUES  (1, 1, 2, "ehdokkaan 1 vastaus kysymykseen 1");

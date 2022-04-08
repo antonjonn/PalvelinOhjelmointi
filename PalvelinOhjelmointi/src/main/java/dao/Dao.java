@@ -153,6 +153,18 @@ public class Dao {
 		}
 	}
 	
+	public ArrayList<Question> createQuestion(Question f) {
+		try {
+			String sql = "";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, kysymys);
+			pstmt.executeUpdate();
+			return readAllQuestions();
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+	
 	public void deleteQuestion(int id) {
 		try {
 			String sql="delete from kysymykset where kysymys_id=?";

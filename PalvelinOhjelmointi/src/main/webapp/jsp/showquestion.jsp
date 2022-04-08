@@ -19,6 +19,8 @@
 </head>
 <body>
 <h1>Kysymykset</h1>
+
+<a href="/createQuestion"> Create new question </a>
 <div class="container">
 	<div class="row justify-content-center">
 		<ol>

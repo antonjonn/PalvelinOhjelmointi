@@ -139,17 +139,17 @@ public class Dao {
 		}
 	}
 	
-	public ArrayList<Question> updateQuestion(Question f) {
+	public void updateQuestion(int kysymys_id, String kysymys) {
 		try {
 			String sql="update kysymykset set kysymys=? where kysymys_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, f.getKysymys());
-			pstmt.setInt(2, f.getKysymys_id());
+			pstmt.setString(1, kysymys);
+			pstmt.setInt(2, kysymys_id);
 			pstmt.executeUpdate();
-			return readAllQuestions();
+			
 		}
 		catch(SQLException e) {
-			return null;
+			System.out.println("shit pant");
 		}
 	}
 	

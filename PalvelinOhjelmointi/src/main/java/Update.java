@@ -46,21 +46,42 @@ public Update() {
 	 *
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	
 			throws ServletException, IOException {
 		Question f = null;
-		ArrayList<String> list = null;
+		ArrayList<Question> list = new ArrayList<Question>();
 		int id = Integer.parseInt(request.getParameter("id"));
 		if (dao.getConnection()) {
 			f = dao.readQuestion(id);
-			list.add(f.getKysymys_id(), f.getKysymys());
+			list.add(f);
 		} else {
 			System.out.println("No connection to database");
 		}
 		
 		
 		request.setAttribute("question", list);
-		response.sendRedirect("/jsp/updatequestion.jsp");
+		//response.sendRedirect("/jsp/updatequestion.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/updatequestion.jsp");
+		rd.forward(request, response);
+	}
+	
+	
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	
+		throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("kysymys_id"));
+		String kysymys = request.getParameter("kysymys");
+		if (dao.getConnection()) {
+			dao.updateQuestion(id, kysymys);
+		} else {
+			System.out.println("No connection to database");
+		}
+		
+		
+		//request.setAttribute("question", list);
+		response.sendRedirect("/showquestion");
 		//RequestDispatcher rd = request.getRequestDispatcher("/jsp/updatequestion.jsp");
 		//rd.forward(request, response);
 	}
+	
 }

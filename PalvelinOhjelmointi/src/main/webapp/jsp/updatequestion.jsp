@@ -22,12 +22,15 @@
 
 <h2>Muokkaa kysymyksiä</h2>
 <% 	
-Question f = (Question)request.getAttribute("question");
-//String p = f.getKysymys();
-out.println(f);
+
+ArrayList<Question> questionList=(ArrayList<Question>)request.getAttribute("question");
+Question f = questionList.get(0);
+
+out.println(f.getKysymys());
+
 
 %>
-	<form action="Update" method="post">
+	<form action="/updatequestion" method="post">
 	
     <table border="1" align="center" cellpadding="5"
       style="font-size: 200%; font-family: inherit; font-style: normal; background-color: window;">
@@ -35,11 +38,11 @@ out.println(f);
         <td>Kysymys ID</td>
         
         
-        <td><input type="text" name="kysymys_id" required></td>
+        <td><input type="text" name="kysymys_id" value="<%out.println(f.getKysymys_id());%>" required></td>
       </tr>
       <tr>
         <td>Kysymys</td>
-        <td><input type="text" name="kysymys" required></td>
+        <td><input type="text" name="kysymys" value="<%out.println(f.getKysymys()); %>" required></td>
       </tr>
       <tr>
         <td align="center"><input type="submit" name="Action"

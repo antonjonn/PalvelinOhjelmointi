@@ -17,7 +17,7 @@ import data.Question;
 public class CreateQuestion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao = null;
-
+	// made changes
 
 @Override
 public void init() {
@@ -49,7 +49,8 @@ public CreateQuestion() {
 			throws ServletException, IOException {
 		Question f = null;
 		String kysymys = request.getParameter("kysymys");	
-		int kysjar = request.getParameter("kysjar");
+		int kysjar = Integer.parseInt(request.getParameter("kysjar"));
+		
 		f = new Question(kysjar, kysymys);
 		if (dao.getConnection()) {
 			dao.createQuestion(f);

@@ -14,7 +14,7 @@ import data.Candidate;
 /**
  * Servlet implementation class CandidateAnswer
  */
-@WebServlet("/CandidateAnswer")
+@WebServlet("CandidateAnswer")
 
 public class CandidateAnswer extends HttpServlet{
 	private static final long serialVersionUID = 1L;
@@ -34,14 +34,15 @@ public class CandidateAnswer extends HttpServlet{
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id=Integer.parseInt(request.getParameter("id"));
-		ArrayList<String> yeppers = new ArrayList<String>();
+		ArrayList<Candidate> yeppers = new ArrayList<Candidate>();
 		Candidate candi = null;
 		String ye = null;
 		//ArrayList<String> f = new ArrayList<String>();
 		if (dao.getConnection()) {
 			candi = dao.readCandidate(id);
 			//f.add(candi.getEtunimi());
-			yeppers.add(candi.getEtunimi() + candi.getSukunimi() + candi.getAmmatti() + candi.getIka() + candi.getKotipaikkakunta() + candi.getMiksi_eduskuntaan() + candi.getMita_edistaa() + candi.getPuolue());
+			yeppers.add(candi);
+			//(candi.getEtunimi() + candi.getSukunimi() + candi.getAmmatti() + candi.getIka() + candi.getKotipaikkakunta() + candi.getMiksi_eduskuntaan() + candi.getMita_edistaa() + candi.getPuolue());
 		}
 		else {
 			System.out.println("No connection to database");

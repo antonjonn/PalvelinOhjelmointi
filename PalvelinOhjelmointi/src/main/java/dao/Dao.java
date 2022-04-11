@@ -164,7 +164,7 @@ public class Dao {
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			System.out.println("shit pant");
+			System.out.println("error");
 		}
 	}
 	

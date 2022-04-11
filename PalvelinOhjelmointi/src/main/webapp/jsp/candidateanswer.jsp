@@ -22,8 +22,16 @@
 
 <%
 request.getAttribute("candidateanswer");
-ArrayList<String> f = (ArrayList)request.getAttribute("candidateanswer");
-out.println(f);
+ArrayList<Candidate> f = (ArrayList)request.getAttribute("candidateanswer");
+Candidate b = f.get(0);
+
+out.println("Nimi " + b.getEtunimi() + " " +  b.getSukunimi() + "<br>");
+out.println("Ammatti " + b.getAmmatti() + "<br>");
+out.println(b.getAmmatti() + "<br>");
+out.println(b.getAmmatti() + "<br>");
+out.println(b.getAmmatti() + "<br>");
+
+
 //out.println(f[0]);
 
 %>

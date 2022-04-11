@@ -6,8 +6,8 @@ public class Question {
 	private int kysjar;
 
 	
-	public Question(int kysymys_id, String kysymys) {
-		this.kysymys_id=kysymys_id;
+	public Question(int kysjar, String kysymys) {
+		this.kysjar=kysjar;
 		this.kysymys=kysymys;
 	}
 	public Question(String kysymys) {

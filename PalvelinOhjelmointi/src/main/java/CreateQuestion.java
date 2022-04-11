@@ -49,7 +49,8 @@ public CreateQuestion() {
 			throws ServletException, IOException {
 		Question f = null;
 		String kysymys = request.getParameter("kysymys");	
-		int kysjar = request.getParameter("kysjar");
+		int kysjar = Integer.parseInt(request.getParameter("kysjar"));
+		
 		f = new Question(kysjar, kysymys);
 		if (dao.getConnection()) {
 			dao.createQuestion(f);

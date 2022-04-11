@@ -37,10 +37,10 @@ public class CandidateAnswer extends HttpServlet{
 		ArrayList<String> yeppers = new ArrayList<String>();
 		Candidate candi = null;
 		String ye = null;
-		ArrayList<String> f = new ArrayList<String>();
+		//ArrayList<String> f = new ArrayList<String>();
 		if (dao.getConnection()) {
 			candi = dao.readCandidate(id);
-			f.add(candi.getEtunimi());
+			//f.add(candi.getEtunimi());
 			yeppers.add(candi.getEtunimi() + candi.getSukunimi() + candi.getAmmatti() + candi.getIka() + candi.getKotipaikkakunta() + candi.getMiksi_eduskuntaan() + candi.getMita_edistaa() + candi.getPuolue());
 		}
 		else {

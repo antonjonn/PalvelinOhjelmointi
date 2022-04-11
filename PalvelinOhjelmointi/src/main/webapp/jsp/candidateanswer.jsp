@@ -23,6 +23,7 @@
 <%
 request.getAttribute("candidateanswer");
 ArrayList<String> f = (ArrayList)request.getAttribute("candidateanswer");
+out.println(f);
 //out.println(f[0]);
 
 %>

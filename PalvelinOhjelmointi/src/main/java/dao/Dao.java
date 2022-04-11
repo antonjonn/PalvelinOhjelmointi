@@ -158,13 +158,15 @@ public class Dao {
 	public void createQuestion(Question f) {
 		try {
 			String kysymys = f.getKysymys();
-			String sql = "insert into kysymykset (KYSYMYS) VALUES(?)";
+			int kysjar = f.getKysjar();
+			String sql = "insert into kysymykset (KYSYMYS, KYS_JAR) VALUES(?, ?)";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, kysymys);
+			pstmt.setInt(2, kysjar);
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			System.out.println("shit pant");
+			System.out.println("error");
 		}
 	}
 	

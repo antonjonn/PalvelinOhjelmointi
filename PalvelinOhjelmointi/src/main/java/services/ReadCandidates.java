@@ -11,7 +11,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import data.Candidate;
+import data.Ehdokkaat;
 
 @Path ("/read")
 
@@ -22,10 +22,10 @@ public class ReadCandidates {
 	@GET
 	@Path("/candidates")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Candidate> readCandidates() {
+	public List<Ehdokkaat> readCandidates() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		List <Candidate> list=em.createQuery("SELECT a FROM ehdokkaat a").getResultList();
+		List<Ehdokkaat> list=em.createQuery("SELECT a FROM Ehdokkaat a").getResultList();
 		em.getTransaction().commit();
 		return list;
 	}

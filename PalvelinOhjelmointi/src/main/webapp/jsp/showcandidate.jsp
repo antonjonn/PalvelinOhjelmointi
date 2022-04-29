@@ -3,7 +3,7 @@
 
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="data.Candidate"%>
-
+<%@ page import="services.ReadCandidates"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -24,20 +24,14 @@
 	</ol>
 	<h1>Vaalikone</h1>
 	<%
-ArrayList<Candidate> candidateList=(ArrayList<Candidate>)request.getAttribute("candidatelist");
-//?id=${candidate.id}
+	
+	
 
 
-for (int i=0;candidateList!=null && i<candidateList.size();i++){
-	Candidate f=candidateList.get(i);
-	
-	out.println(f.getId()+": "+f.getEtunimi()+"<a href='/CandidateAnswer?id="+ f.getId() + "'>Select Candidate</a> <br>");
-	
-	//out.println("<form name=" + "sendId" + "method=POST" + f.getId()+": "+f.getEtunimi()+ "<a href='/jsp/candidateanswer.jsp"+"'>Select Candidate</a>" + "</form>");
-	
+
     
 	
-	}
+	
 
 %>
 

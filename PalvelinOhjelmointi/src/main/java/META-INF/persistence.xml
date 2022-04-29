@@ -7,7 +7,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 	<persistence-unit name="jpa247">
 <!-- All the classes, which belong to the peristence unit and so can be persisted using JPA
 	Here there is just one: app.Fish. All the other should be added in the same way. -->	
-	<class>data.Candidate</class>
+	<class>data.Ehdokkaat</class>
 	
 <!-- If using MySQL 5.7 or newer -->
 <!--  
@@ -20,7 +20,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 		
 <!--  jdbcDriver == class, where in the implementation of database functions--> 
 <!--  jdbcUrl == address to the database--> 
-<!--  jdbcUser == user name to the database--> 
+<!--  jdbcUser == user name to the databasae-->
 <!--  jdbcPassword == password of the database user--> 
 <!--  ddlGeneration == database tables will be created, if they do not exist. The database show be created beforehand--> 
     <properties>

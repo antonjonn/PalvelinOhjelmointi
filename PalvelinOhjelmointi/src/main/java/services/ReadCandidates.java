@@ -25,7 +25,7 @@ public class ReadCandidates {
 	public List<Candidate> readCandidates() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		List <Candidate> list=em.createQuery("select a from ehdokkaat a").getResultList();
+		List <Candidate> list=em.createQuery("SELECT a FROM ehdokkaat a").getResultList();
 		em.getTransaction().commit();
 		return list;
 	}

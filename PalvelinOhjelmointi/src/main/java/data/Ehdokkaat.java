@@ -6,42 +6,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-	public class Candidate {
+	public class Ehdokkaat {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-		private int id;
+		private int ehdokas_id;
 		private String sukunimi;
 		private String etunimi;
 		private String puolue;
 		private String kotipaikkakunta;
 		private String ika;
 		private String miksi_eduskuntaan;
-		private String mita_edistaa;
+		private String mita_asioita_haluat_edistaa;
 		private String ammatti;
-		public Candidate(int id, String sukunimi, String etunimi, String puolue, String kotipaikkakunta, String ika, String miksi_eduskuntaan, String mita_edistaa, String ammatti) {
+		public Ehdokkaat(int ehdokas_id, String sukunimi, String etunimi, String puolue, String kotipaikkakunta, String ika, String miksi_eduskuntaan, String mita_asioita_haluat_edistaa, String ammatti) {
 			// TODO Auto-generated constructor stub
-			setId(id);
+			setEhdokas_id(ehdokas_id);
 			this.sukunimi=sukunimi;
 			this.etunimi=etunimi;
 			this.puolue=puolue;
 			this.kotipaikkakunta=kotipaikkakunta;
 			this.ika=ika;
 			this.miksi_eduskuntaan=miksi_eduskuntaan;
-			this.mita_edistaa=mita_edistaa;
+			this.mita_asioita_haluat_edistaa=mita_asioita_haluat_edistaa;
 			this.ammatti=ammatti;
 		}
-		public Candidate() {
+		public Ehdokkaat() {
 			// TODO Auto-generated constructor stub
 		}
-		public int getId() {
-			return id;
+		public int getEhdokas_id() {
+			return ehdokas_id;
 		}
-		public void setId(int id) {
-			this.id = id;
+		public void setEhdokas_id(int ehdokas_id) {
+			this.ehdokas_id = ehdokas_id;
 		}
-		public void setId(String id) {
+		public void setEhdokas_id(String ehdokas_id) {
 			try {
-				this.id = Integer.parseInt(id);
+				this.ehdokas_id = Integer.parseInt(ehdokas_id);
 			}
 			catch(NumberFormatException | NullPointerException e) {
 				//Do nothing - the value of id won't be changed
@@ -83,11 +83,11 @@ import javax.persistence.Id;
 		public void setMiksi_eduskuntaan(String miksi_eduskuntaan) {
 			this.miksi_eduskuntaan = miksi_eduskuntaan;
 		}
-		public String getMita_edistaa() {
-			return mita_edistaa;
+		public String getMita_asioita_haluat_edistaa() {
+			return mita_asioita_haluat_edistaa;
 		}
 		public void setMita_edistaa(String mita_asioita_haluat_edistaa) {
-			this.mita_edistaa = mita_edistaa;
+			this.mita_asioita_haluat_edistaa = mita_asioita_haluat_edistaa;
 		}
 		public String getAmmatti() {
 			return ammatti;

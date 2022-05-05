@@ -24,6 +24,7 @@
 
 	</ol>
 	<h1></h1>
+	<td><a href='/jsp/createcandidate.jsp'>create candidate</a></td>
 	<%
 %>
 <script>

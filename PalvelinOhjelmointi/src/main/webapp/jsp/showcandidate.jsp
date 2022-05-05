@@ -43,12 +43,31 @@ function readAllCandidates(){
 	xmlhttp.open("GET", "/rest/read/candidates", true);
 	xmlhttp.send();	
 }
+
+function poistaEhdokas(id){
+	var ehdokkaat = new Object();
+	ehdokkaat.ehdokas_id = id;
+	var jsonEhdokas = JSON.stringify(ehdokkaat);
+	var confirmalert = confirm("Oletko varma että haluat poistaa ehdokkaan?");
+	if(confirmalert == true) {
+		var xmlhttp=new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+			    document.getElementById("resultall").innerHTML = this.responseText;
+		  }
+		};
+		xmlhttp.open("POST", "/rest/delete/deletecandidate", true);
+		xmlhttp.setRequestHeader("Content-type", "application/json");
+		xmlhttp.send(jsonEhdokas);	
+	}
+	
+}
 function printAllCandidates(list){
 	var s="<table border='1'>";
 	for (i in list){//or for (var i=0;i<list.length;i++){
 		s=s+"<tr class='clickable-row' >";
 		 s=s+"<td>"+ "<a href='/jsp/editcandidate.jsp?id=" + list[i].ehdokas_id + "'>" + list[i].etunimi + " " + list[i].sukunimi;
-		//s=s+"<td>"+list[i].sukunimi;
+		s=s+"<td><button onclick='poistaEhdokas();' value='poista'>";
 		/* s=s+"<td>"+list[i].ika; 
 		s=s+"<td>"+list[i].puolue; 
 		s=s+"<td>"+list[i].ammatti; 

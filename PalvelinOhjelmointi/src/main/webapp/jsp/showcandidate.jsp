@@ -14,7 +14,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="mycssfilesomewhere.css">
+<link rel="stylesheet" type="text/css" href="/html/mycssfilesomewhere.css">
 <script src="myscriptfile.js"></script>
 
 </head>
@@ -45,9 +45,10 @@ function readAllCandidates(){
 }
 
 function poistaEhdokas(id){
-	var ehdokkaat = new Object();
-	ehdokkaat.ehdokas_id = id;
-	var jsonEhdokas = JSON.stringify(ehdokkaat);
+	/*  var ehdokkaat = new Object();
+	ehdokkaat.ehdokas_id = id;  */
+	var id = id;
+	var jsonEhdokas = JSON.stringify(id);
 	var confirmalert = confirm("Oletko varma että haluat poistaa ehdokkaan?");
 	if(confirmalert == true) {
 		var xmlhttp=new XMLHttpRequest();
@@ -56,9 +57,10 @@ function poistaEhdokas(id){
 			    document.getElementById("resultall").innerHTML = this.responseText;
 		  }
 		};
-		xmlhttp.open("POST", "/rest/delete/deletecandidate", true);
+		xmlhttp.open("DELETE", "/rest/delete/deletecandidate", true);
 		xmlhttp.setRequestHeader("Content-type", "application/json");
-		xmlhttp.send(jsonEhdokas);	
+		xmlhttp.send(id);	
+		location.reload();
 	}
 	
 }
@@ -67,7 +69,7 @@ function printAllCandidates(list){
 	for (i in list){//or for (var i=0;i<list.length;i++){
 		s=s+"<tr class='clickable-row' >";
 		 s=s+"<td>"+ "<a href='/jsp/editcandidate.jsp?id=" + list[i].ehdokas_id + "'>" + list[i].etunimi + " " + list[i].sukunimi;
-		s=s+"<td><button onclick='poistaEhdokas();'>Poista</button>";
+		s=s+"<td><button onclick='poistaEhdokas("+ list[i].ehdokas_id +  ");'>Poista</button>";
 		/* s=s+"<td>"+list[i].ika; 
 		s=s+"<td>"+list[i].puolue; 
 		s=s+"<td>"+list[i].ammatti; 
@@ -86,10 +88,13 @@ function printAllCandidates(list){
  
 
     <h1>List of all candidates</h1>
+     <div class="container">
+	<div class="row justify-content-center">
     <p id='resultall'></p>
     <div id='candidates' onload='readAllCandidates();'>
     </div> 
-
+</div>
+</div>
 
 
 </body>

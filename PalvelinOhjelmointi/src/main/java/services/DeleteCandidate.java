@@ -20,12 +20,13 @@ public class DeleteCandidate {
 	@DELETE
 	@Path("/deletecandidate")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void CandidateDeletion(Ehdokkaat ehdokas) {
+	public void CandidateDeletion(int id) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		Ehdokkaat poistettavaEhdokas = em.find(Ehdokkaat.class, ehdokas.getEhdokas_id());
+		Ehdokkaat poistettavaEhdokas = em.find(Ehdokkaat.class, id);
 		if (poistettavaEhdokas != null) {
 			em.remove(poistettavaEhdokas);
+			//System.out.println("erroooooooooor");
 		}
 		em.getTransaction().commit();
 	}

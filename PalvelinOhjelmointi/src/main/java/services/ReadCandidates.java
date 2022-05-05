@@ -1,6 +1,7 @@
 package services;
 
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -18,7 +19,7 @@ import data.Ehdokkaat;
 public class ReadCandidates {
 
 	EntityManagerFactory emf=Persistence.createEntityManagerFactory("jpa247");
-	//EntityManager em=emf.createEntityManager();
+	
 	@GET
 	@Path("/candidates")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -29,4 +30,25 @@ public class ReadCandidates {
 		em.getTransaction().commit();
 		return list;
 	}
+	
+//	 @GET
+//	 @Path("/test")
+//	 @Produces(MediaType.TEXT_HTML)
+//	public void readCandidates(PrintWriter out) {
+//		EntityManager em=emf.createEntityManager();
+//		em.getTransaction().begin();
+//		List<Ehdokkaat> list=em.createQuery("SELECT a FROM Ehdokkaat a").getResultList();
+//		em.getTransaction().commit();
+//		printCandidates(out, list);
+//		
+//	}
+//	private void printCandidates(PrintWriter out, List<Ehdokkaat> list) {
+//		// TODO Auto-generated method stub
+//		for (int i=0;list!=null && i<list.size();i++) {
+//			Ehdokkaat k=list.get(i);
+//			out.println(k+"<br>");
+//			
+//		}
+//	}
+	
 }

@@ -14,8 +14,6 @@
 		Ikä:<input type='text' name='name' value=''><br>
 	Jotain: <input type='text' name='city' value=''><br>
 	Miksi Eduskuntaan:<input type='text' name='name' value=''><br>
-	Peniksen Pituus: <input type='text' name='city' value=''><br>
-	Perseen Syvyys: <input type='text' name='city' value=''><br>
 	<input type='submit' name='ok' value='Send'>
 	</form>
   </body>

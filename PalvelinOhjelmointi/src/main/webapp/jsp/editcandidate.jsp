@@ -3,7 +3,7 @@
 
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="data.Candidate"%>
-<%@ page import="services.ReadCandidates"%>
+<%@ page import="services.CandidatePage"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -18,17 +18,20 @@
 <script src="myscriptfile.js"></script>
 
 </head>
-<body onload='readAllCandidates();'>
+<body onload='readCandidate();'>
 	<h2>Vaalikone</h2>
 	<ol>
 
 	</ol>
 	<h1></h1>
-	<td><a href='/jsp/createcandidate.jsp'>create candidate</a></td>
 	<%
 %>
 <script>
-function readAllCandidates(){
+function readCandidate(){
+	 
+	 const queryString = window.location.search;
+	  const urlParams = new URLSearchParams(queryString);
+	 const ehdokas_id = urlParams.get('id');
 	var xmlhttp=new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 	  if (this.readyState == 4 && this.status == 200) {
@@ -36,18 +39,19 @@ function readAllCandidates(){
 		  //Add JSON string as a content of element resultall
 		  //document.getElementById("resultall").innerHTML = jsoncandidatelist;
 		  var candilist=JSON.parse(jsoncandidatelist);
-		  
-		  printAllCandidates(candilist);
+		 
+		  printOneCandidate(candilist);
 	  }
 	};
-	xmlhttp.open("GET", "/rest/read/candidates", true);
+	
+	xmlhttp.open("GET", "/rest/showcandidate/candidate/" + ehdokas_id, true);
 	xmlhttp.send();	
 }
-function printAllCandidates(list){
+function printOneCandidate(list){
 	var s="<table border='1'>";
 	for (i in list){//or for (var i=0;i<list.length;i++){
 		s=s+"<tr class='clickable-row' >";
-		 s=s+"<td>"+ "<a href='/jsp/editcandidate.jsp?id=" + list[i].ehdokas_id + "'>" + list[i].etunimi + " " + list[i].sukunimi;
+		 s=s+"<td>"+ list[i];
 		//s=s+"<td>"+list[i].sukunimi;
 		/* s=s+"<td>"+list[i].ika; 
 		s=s+"<td>"+list[i].puolue; 
@@ -68,7 +72,7 @@ function printAllCandidates(list){
 
     <h1>List of all candidates</h1>
     <p id='resultall'></p>
-    <div id='candidates' onload='readAllCandidates();'>
+    <div id='candidates' onload='readCandidate();'>
     </div> 
 
 

@@ -67,7 +67,7 @@ function printAllCandidates(list){
 	for (i in list){//or for (var i=0;i<list.length;i++){
 		s=s+"<tr class='clickable-row' >";
 		 s=s+"<td>"+ "<a href='/jsp/editcandidate.jsp?id=" + list[i].ehdokas_id + "'>" + list[i].etunimi + " " + list[i].sukunimi;
-		s=s+"<td><button onclick='poistaEhdokas();' value='poista'>";
+		s=s+"<td><button onclick='poistaEhdokas();'>Poista</button>";
 		/* s=s+"<td>"+list[i].ika; 
 		s=s+"<td>"+list[i].puolue; 
 		s=s+"<td>"+list[i].ammatti; 

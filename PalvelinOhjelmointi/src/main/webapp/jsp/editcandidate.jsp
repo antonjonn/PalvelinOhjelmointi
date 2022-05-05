@@ -39,6 +39,8 @@ function readCandidate(){
 		  //Add JSON string as a content of element resultall
 		  //document.getElementById("resultall").innerHTML = jsoncandidatelist;
 		  var candilist=JSON.parse(jsoncandidatelist);
+		  
+		 //Ehdokkaat ehdokas = JSON.parse(jsoncandidatelist);
 		 
 		  printOneCandidate(candilist);
 	  }
@@ -49,9 +51,18 @@ function readCandidate(){
 }
 function printOneCandidate(list){
 	var s="<table border='1'>";
-	for (i in list){//or for (var i=0;i<list.length;i++){
+	//for (i in list){//or for (var i=0;i<list.length;i++){
+		
 		s=s+"<tr class='clickable-row' >";
-		 s=s+"<td>"+ list[i];
+		 s=s+"<tr>  <td> <b>Nimi: </b>" + list.etunimi + " " +  list.sukunimi + "</td>";
+		 s=s+"<tr> <td> <b>Ika: </b>" + list.ika + "</td>";
+		 s=s+"<tr> <td> <b>Puolue: </b>" + list.puolue + "</td>";
+		 s=s+"<tr>  <td> <b>Ammatti: </b>" + list.ammatti + "</td>";
+		 s=s+"<tr>  <td> <b>Kotipaikkakunta: </b>" + list.kotipaikkakunta + "</td>";
+		 s=s+"<tr>  <td> <b>Miksi eduskuntaan: </b>" + list.miksi_eduskuntaan + "</td>";
+		 s=s+"<tr>  <td> <b> Mita asioita haluat edistaa: </b>" + list.mita_asioita_haluat_edistaa + "</td>";
+		 
+		 //var Ehdokas = Object.Assign({}, list);
 		//s=s+"<td>"+list[i].sukunimi;
 		/* s=s+"<td>"+list[i].ika; 
 		s=s+"<td>"+list[i].puolue; 
@@ -60,20 +71,21 @@ function printOneCandidate(list){
 		s=s+"<td>"+list[i].miksi_eduskuntaan; 
 		s=s+"<td>"+list[i].mita_asioita_haluat_edistaa;  */
 		
-	}
+	//}
 	s=s+"</table>";
 	document.getElementById("candidates").innerHTML=s;
 }
 
+	
 
 </script>
 	
- 
-
-    <h1>List of all candidates</h1>
+ <h1>Candidate</h1>
     <p id='resultall'></p>
     <div id='candidates' onload='readCandidate();'>
     </div> 
+
+    
 
 
 

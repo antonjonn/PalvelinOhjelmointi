@@ -85,12 +85,11 @@ public class Dao {
 		try {
 			String sql="delete from ehdokkaat where ehdokas_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
-			return readAllCandidates();
 		}
 		catch(SQLException e) {
-			return null;
+			
 		}
 	}
 

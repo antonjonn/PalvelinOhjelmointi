@@ -15,6 +15,11 @@ import javax.ws.rs.core.MediaType;
 
 
 public class DeleteCandidate {
+	
+	private Dao dao;
+	public void init() {
+		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "root", "salasana");
+	}
 	EntityManagerFactory emf=Persistence.createEntityManagerFactory("jpa247");
 	
 	@DELETE
@@ -22,6 +27,8 @@ public class DeleteCandidate {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void CandidateDeletion(Ehdokkaat ehdokas) {
 		int poistettavaid = ehdokas.getEhdokas_id();
-		Dao.deleteCandidate(poistettavaid);
+		if (dao.getConnection()) {
+			dao.deleteCandidate(poistettavaid);
+		}
 	}
 }

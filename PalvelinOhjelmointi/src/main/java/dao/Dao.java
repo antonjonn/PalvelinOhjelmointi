@@ -81,7 +81,7 @@ public class Dao {
 			return null;
 		}
 	}
-	public ArrayList<Candidate> deleteCandidate(String id) {
+	public void deleteCandidate(int id) {
 		try {
 			String sql="delete from ehdokkaat where ehdokas_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);

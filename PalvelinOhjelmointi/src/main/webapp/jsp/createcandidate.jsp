@@ -8,12 +8,15 @@
   <body>
     <h1>Fill in!</h1>
 	//new form action when done
-	<form action="/rest/showcandidate/candidatepage" method="post">
-	Nimi:<input type='text' name='name' value=''><br>
-	Puolue: <input type='text' name='city' value=''><br>
-		Ikä:<input type='text' name='name' value=''><br>
-	Jotain: <input type='text' name='city' value=''><br>
-	Miksi Eduskuntaan:<input type='text' name='name' value=''><br>
+	<form action="/rest/candidatecreation/new" method="post">
+	Sukunimi:<input type='text' name='sukunimi' value=''><br>
+	Etunimi: <input type='text' name='etunimi' value=''><br>
+	Puolue:<input type='text' name='puolue' value=''><br>
+	Kotipaikkakunta: <input type='text' name='paikkakunta' value=''><br>
+	Ika:<input type='text' name='ika' value=''><br>
+	Miksi eduskuntaan?:<input type='text' name='miksi_eduskuntaan' value=''><br>
+	Mita asioita haluat edistaa?:<input type='text' name='mita_edistaa' value=''><br>
+	Ammatti<input type='text' name='ammatti' value=''><br>
 	<input type='submit' name='ok' value='Send'>
 	</form>
   </body>

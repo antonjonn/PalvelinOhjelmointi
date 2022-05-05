@@ -14,7 +14,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="mycssfilesomewhere.css">
+<link rel="stylesheet" type="text/css" href="/html/mycssfilesomewhere.css">
 <script src="myscriptfile.js"></script>
 
 </head>
@@ -49,8 +49,30 @@ function readCandidate(){
 	xmlhttp.open("GET", "/rest/showcandidate/candidate/" + ehdokas_id, true);
 	xmlhttp.send();	
 }
+function editcandidate(form){
+	 const queryString = window.location.search;
+	  const urlParams = new URLSearchParams(queryString);
+	 const ehdokas_id = urlParams.get('id');
+	var ehdokas= new Object();
+	ehdokas.ehdokas_id=ehdokas_id;
+	ehdokas.sukunimi=form.sukunimi.value;
+	ehdokas.etunimi=form.etunimi.value;
+	ehdokas.puolue=form.puolue.value;
+	ehdokas.kotipaikkakunta=form.paikkakunta.value;
+	ehdokas.ika=form.ika.value;
+	ehdokas.miksi_eduskuntaan=form.miksi_eduskuntaan.value;
+	ehdokas.mita_asioita_haluat_edistaa=form.mita_edistaa.value;
+	ehdokas.ammatti=form.ammatti.value;
+	var jsonEhdokas=JSON.stringify(ehdokas);
+	var xmlhttp=new XMLHttpRequest();
+	
+	xmlhttp.open("PUT", "/rest/editcandidate/edit", true);
+	xmlhttp.setRequestHeader("Content-type", "application/json");
+	xmlhttp.send(jsonEhdokas);
+	location.reload();
+}
 function printOneCandidate(list){
-	var s="<table border='1'>";
+	var s=" <table border='1'>";
 	//for (i in list){//or for (var i=0;i<list.length;i++){
 		
 		s=s+"<tr class='clickable-row' >";
@@ -61,19 +83,17 @@ function printOneCandidate(list){
 		 s=s+"<tr>  <td> <b>Kotipaikkakunta: </b>" + list.kotipaikkakunta + "</td>";
 		 s=s+"<tr>  <td> <b>Miksi eduskuntaan: </b>" + list.miksi_eduskuntaan + "</td>";
 		 s=s+"<tr>  <td> <b> Mita asioita haluat edistaa: </b>" + list.mita_asioita_haluat_edistaa + "</td>";
-		 
-		 //var Ehdokas = Object.Assign({}, list);
-		//s=s+"<td>"+list[i].sukunimi;
-		/* s=s+"<td>"+list[i].ika; 
-		s=s+"<td>"+list[i].puolue; 
-		s=s+"<td>"+list[i].ammatti; 
-		s=s+"<td>"+list[i].kotipaikkakunta; 
-		s=s+"<td>"+list[i].miksi_eduskuntaan; 
-		s=s+"<td>"+list[i].mita_asioita_haluat_edistaa;  */
-		
-	//}
+
 	s=s+"</table>";
 	document.getElementById("candidates").innerHTML=s;
+	document.getElementsByName("sukunimi")[0].value=list.sukunimi;
+	document.getElementsByName("etunimi")[0].value=list.etunimi;
+	document.getElementsByName("ika")[0].value=list.ika;
+	document.getElementsByName("ammatti")[0].value=list.ammatti;
+	document.getElementsByName("puolue")[0].value=list.puolue;
+	document.getElementsByName("mita_edistaa")[0].innerHTML=list.mita_asioita_haluat_edistaa;
+	document.getElementsByName("miksi_eduskuntaan")[0].innerHTML=list.miksi_eduskuntaan;
+	document.getElementsByName("paikkakunta")[0].value=list.kotipaikkakunta;
 }
 
 	
@@ -81,12 +101,27 @@ function printOneCandidate(list){
 </script>
 	
  <h1>Candidate</h1>
+ <div class="container">
+	<div class="row justify-content-center">
     <p id='resultall'></p>
-    <div id='candidates' onload='readCandidate();'>
+    <div id='candidates'>
     </div> 
-
     
-
+     <h2>Edit Candidate Information</h2>
+     
+<form>
+	Sukunimi:<input type='text' name='sukunimi' value=''><br>
+	Etunimi: <input type='text' name='etunimi' value=''><br>
+	Puolue:<input type='text' name='puolue' value=''><br>
+	Kotipaikkakunta: <input type='text' name='paikkakunta' value=''><br>
+	Ika:<input type='text' name='ika' value=''><br>
+	Miksi eduskuntaan?:<textarea name='miksi_eduskuntaan'> </textarea><br>
+	Mita asioita haluat edistaa?:<textarea name='mita_edistaa' > </textarea><br>
+	Ammatti<input type='text' name='ammatti' value=''><br>
+	<input type='button' name='ok' value='Send' onclick="editcandidate(this.form);">
+	</form>
+    </div> 
+</div> 
 
 
 </body>

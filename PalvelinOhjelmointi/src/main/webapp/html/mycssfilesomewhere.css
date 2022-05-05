@@ -6,3 +6,8 @@ body {
 	border-radius:5px;
 	padding:5px;
 }
+
+textarea {
+	width:200px;
+	height:100px;
+}
